@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 
-import VueDynamicForm from './index.js'
+import VueDynamicForm from '../src/index.js'
 Vue.use(VueDynamicForm)
 
 Vue.config.productionTip = false
