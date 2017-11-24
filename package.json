@@ -1,8 +1,9 @@
 {
   "name": "ade-vue-dynamic-form",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Create a dynamic form usign a set of custom Vue.js components",
   "author": "Alan Dell'Onze <a.dellonze@techgap.it>",
+  "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
