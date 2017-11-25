@@ -4,6 +4,15 @@
   "description": "Create a dynamic form usign a set of custom Vue.js components",
   "author": "Alan Dell'Onze <a.dellonze@techgap.it>",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alandellonze/ade-vue-dynamic-form.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alandellonze/ade-vue-dynamic-form/issues"
+  },
+  "homepage": "https://github.com/alandellonze/ade-vue-dynamic-form#readme",
+  "license": "ISC",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -13,18 +22,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alandellonze/ade-vue-dynamic-form.git"
-  },
-  "bugs": {
-    "url": "https://github.com/alandellonze/ade-vue-dynamic-form/issues"
-  },
-  "homepage": "https://github.com/alandellonze/ade-vue-dynamic-form#readme",
   "dependencies": {
-    "axios": "^0.17.1",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
