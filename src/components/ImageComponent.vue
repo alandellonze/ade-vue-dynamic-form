@@ -1,5 +1,8 @@
 <template>
-<img :src="template.value" />
+<div>
+  <span>{{template.label}}</span>
+  <img :src="template.value" />
+</div>
 </template>
 
 <script>

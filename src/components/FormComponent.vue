@@ -3,8 +3,8 @@
   <form>
     <!-- generate all the input in the template -->
     <div v-for="template in templates">
-      <df-text v-if="template.type === 'text'" :template="template" />
-      <df-textarea v-if="template.type === 'textarea'" :template="template" />
+      <df-text v-if="template.type === 'text'" :language="language" :template="template" />
+      <df-textarea v-if="template.type === 'textarea'" :language="language" :template="template" />
       <df-image v-if="template.type === 'image'" :template="template" />
     </div>
 
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['templates', 'onSubmit'],
+  props: ['language', 'templates', 'onSubmit'],
 
   methods: {
     innerOnSubmit: function () {
