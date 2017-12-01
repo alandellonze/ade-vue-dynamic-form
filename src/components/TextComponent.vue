@@ -1,7 +1,8 @@
 <template>
 <div>
-  <span>{{template.label}}</span>
-  <input type="text" v-model="template.value[language]" :required="template.required" :maxLength="template.maxLength" />
+  <el-form-item :label="template.label">
+    <el-input v-model="template.value[language]" :maxlength="template.maxLength"></el-input>
+  </el-form-item>
 </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <form>
+  <el-form label-width="120px">
     <!-- generate all the input in the template -->
     <div v-for="template in templates">
       <df-text v-if="template.type === 'text'" :language="language" :template="template" />
@@ -9,8 +9,8 @@
     </div>
 
     <!-- submit button -->
-    <button v-on:click.prevent="innerOnSubmit">submit</button>
-  </form>
+    <el-button type="success" icon="el-icon-success" v-on:click.prevent="innerOnSubmit">submit</el-button>
+  </el-form>
 </div>
 </template>
 

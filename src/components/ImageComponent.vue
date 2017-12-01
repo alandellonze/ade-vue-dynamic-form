@@ -1,7 +1,8 @@
 <template>
 <div>
-  <span>{{template.label}}</span>
-  <img :src="template.value" />
+  <el-form-item :label="template.label">
+    <img :src="template.value" :width="template.size" />
+  </el-form-item>
 </div>
 </template>
 
