@@ -1,5 +1,10 @@
 <template>
 <div id="app">
+
+  <video class="backgroudVideo" playsinline autoplay muted loop>
+    <source type="video/mp4" src="https://mdbootstrap.com/img/video/animation-intro.mp4"></source>
+  </video>
+
   <!-- header -->
   <el-header>
     The header
@@ -41,7 +46,7 @@
 
           <!-- dynamic form -->
           <el-col>
-            <df-form :language="language" :templates="templates" :onSubmit="onSubmit"></df-form>
+            <df-form :language="language" :dynamicForm="dynamicForm" :onSubmit="onSubmit"></df-form>
           </el-col>
         </el-row>
       </el-main>
@@ -62,32 +67,38 @@ export default {
   data () {
     return {
       language: defaultLanguage,
-      templates: [
-        {
-          name: 'field1',
-          type: 'text',
-          label: 'label text',
-          value: {
-            it: 'value text',
-            en: 'en value text'
-          },
-          maxLength: 10
-        }, {
-          name: 'field2',
-          type: 'textarea',
-          label: 'label textarea',
-          value: {
-            it: 'it value textarea',
-            en: 'en value textarea'
-          },
-        }, {
-          name: 'field3',
-          type: 'image',
-          label: 'label image',
-          value: 'http://www.tutorialsavvy.com/wp-content/uploads/2015/10/image_thumb23.png',
-          size: 100
-        }
-      ]
+      dynamicForm: {
+        fields: [
+          {
+            name: 'field1',
+            type: 'text',
+            label: 'label text',
+            values: {
+              it: 'value text',
+              en: 'en value text'
+            },
+            validation: { required: true, message: 'field can not be null', trigger: 'blur,change' }
+          }, {
+            name: 'field2',
+            type: 'textarea',
+            label: 'label textarea',
+            values: {
+              it: 'it value textarea',
+              en: 'en value textarea'
+            },
+            validation: { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur,change' }
+          }, {
+            name: 'field3',
+            type: 'image',
+            label: 'label image',
+            values: {
+              it: 'http://www.tutorialsavvy.com/wp-content/uploads/2015/10/image_thumb23.png',
+              en: null
+            },
+            size: 100
+          }
+        ]
+      }
     }
   },
 
@@ -95,11 +106,12 @@ export default {
     switchLanguage (languageSelected) {
       this.language = languageSelected
     },
+
     onSubmit () {
       let lang = this.language;
-      this.templates.map(function (template) {
-        console.log('it: ' + template.type + ', ' + template.value['it'])
-        console.log('en: ' + template.type + ', ' + template.value['en'])
+      this.dynamicForm.fields.map(function (field) {
+        console.log('it: ' + field.type + ', ' + field.values['it'])
+        console.log('en: ' + field.type + ', ' + field.values['en'])
       })
     }
   }
@@ -124,7 +136,17 @@ body {
   border-right: solid 1px #E6E6E6;
 }
 
-.el-header, .el-footer {
+.el-header {
+  background-color: #B3C0D1;
+  color: #333333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
   background-color: #B3C0D1;
   color: #333333;
   text-align: center;
@@ -138,5 +160,20 @@ body {
 
 .el-col {
   margin-bottom: 20px;
+}
+
+.backgroudVideo { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  /* background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat; */
+  background-size: cover;
+  transition: 1s opacity;
 }
 </style>

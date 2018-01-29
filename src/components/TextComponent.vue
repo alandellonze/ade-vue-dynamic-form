@@ -1,14 +1,14 @@
 <template>
 <div>
-  <el-form-item :label="template.label">
-    <el-input v-model="template.value[language]" :maxlength="template.maxLength"></el-input>
+  <el-form-item :label="field.label" :prop="'fields.' + index + '.values.' + language" :rules="field.validation">
+    <el-input v-model="field.values[language]"></el-input>
   </el-form-item>
 </div>
 </template>
 
 <script>
 export default {
-  props: ['language', 'template']
+  props: ['language', 'field', 'index']
 }
 </script>
 
